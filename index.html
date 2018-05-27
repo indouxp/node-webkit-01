@@ -6,12 +6,16 @@
   </head>
   <body>
   <script>
-    var fs = require('fs');
-    
-    fs.readFile('package.json', function (err, data) {
-      if (err) throw err;
-      document.write(data);
+    var http = require('http');
+    var server = http.createServer();
+ 
+    server.on('request', function(req, res) {
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end("connect");
+      new Notification("リクエストがありました。");
     });
+ 
+    server.listen(8888);
   </script>
   </body>
 </html>
