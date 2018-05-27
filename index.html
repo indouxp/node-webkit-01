@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Hello World!</title>
-</head>
-<body>
-  <h1>Hello World!</h1>
-  We are using node.js <script>document.write(process.version)</script>.
-</body>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>node-webkitを試す</title>
+  </head>
+  <body>
+  <script>
+    var fs = require('fs');
+    
+    fs.readFile('package.json', function (err, data) {
+      if (err) throw err;
+      document.write(data);
+    });
+  </script>
+  </body>
 </html>
